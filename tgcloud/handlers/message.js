@@ -8,7 +8,7 @@ export default async function (message) {
 
   if (text.startsWith('/start')) {
     await db.insert(chats).values({ chatId })
-      .onConflictDoUpdate({ target: chats.chatId, set: { chatId } })
+      .onConflictDoNothing({ target: chats.chatId })
       .run();
     await api.sendMessage({
       chat_id: chatId,
