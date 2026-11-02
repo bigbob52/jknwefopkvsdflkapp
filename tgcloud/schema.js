@@ -13,3 +13,9 @@ export const products = table('products', {
 export const chats = table('chats', {
   chatId: integer('chat_id').primaryKey(),
 });
+
+// Служебные значения, например счётчик ошибок подряд.
+export const meta = table('meta', {
+  key: text('key').primaryKey(),
+  value: integer('value').notNull(),
+});
